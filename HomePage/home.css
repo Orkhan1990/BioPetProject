@@ -10,6 +10,9 @@
     --black: #0000;
     --blue: #486aa6;
     --yellow1: #C1D72D;
+    --gray1: #968D8D;
+    --gray2: #979797;
+    --gray3: #cecbcd;
 }
 
 html {
@@ -31,7 +34,6 @@ ul li {
 
 header {
     height: 100vh;
-    /* background: red; */
 }
 
 .header_head_container {
@@ -113,7 +115,7 @@ header {
     background: var(--blue)
 }
 
-.header_navbar ul {
+.header_navbar_list {
     display: flex;
     max-width: 1092px;
     margin: 0 auto;
@@ -128,6 +130,40 @@ header {
     font-weight: 300;
     font-size: 1.8rem;
     line-height: 21px;
+}
+
+.sub_list {
+    width: 250px;
+    height: 235px;
+    background: #FFFFFF;
+    border-radius: 4px;
+    z-index: 1000;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    top: 40px;
+    left:-5000px;
+    padding: 26px 146px 15px 18px;
+
+}
+.active_list{
+    left:0;
+}
+.sub_list li:hover{
+    background: rgba(196, 196, 196, 0.22);
+    width: 100% !important;
+}
+
+.sub_list a {
+    color: black;
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 14px;
+}
+
+.fist_list_droptown {
+    position: relative;
 }
 
 .first_slider {
@@ -175,11 +211,398 @@ header {
 }
 
 .first_slider img {
-    height: 100%;
+    height: 517px;
     width: 100%;
 }
-.slider_scroll{
+
+.slider_scroll {
     display: flex;
     align-items: center;
-    gap:11px;
+    gap: 11px;
+}
+
+.slider {
+    display: flex;
+
+}
+
+.first_section_slider {
+    max-width: 1250px;
+    margin: 0 auto;
+    gap: 180px;
+    align-items: center;
+
+}
+
+.slider_cards {
+    max-width: 809px;
+    gap: 87px;
+}
+
+.first_section_header {
+    text-align: center;
+    margin-bottom: 18px;
+    font-weight: 500;
+    font-size: 3.6rem;
+    line-height: 42px;
+    padding-top: 83px;
+}
+
+.active {
+    margin-top: 116px;
+}
+
+.card_content {
+    width: 210px;
+    height: 312px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 26px;
+}
+
+.card_content p {
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 23px;
+}
+
+.card_content img {
+    width: 100%;
+}
+
+.first_section_slider svg {
+    cursor: pointer;
+}
+
+.second_section_header {
+    text-align: center;
+    margin-top: 94px;
+    margin-bottom: 42px;
+}
+
+.second_section_content {
+    max-width: 1170px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(278px, 1fr));
+    gap: 10px;
+}
+
+.second_section_card {
+    min-width: 278px;
+    height: 245px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+}
+
+.card_img {
+    position: relative;
+    background: rgba(9, 9, 9, 0.16);
+    box-shadow: 0px 0px 9px rgba(69, 69, 69, 0.18);
+    border-radius: 6px;
+}
+
+.favorite_product {
+    position: absolute;
+    width: 51px;
+    height: 41px;
+    background: var(--white);
+    padding: 13px 15px 10px 14px;
+    border-radius: 0px 6px 0 6px;
+    top: 0px;
+    right: 0px;
+}
+
+.favorite_product svg {
+    cursor: pointer;
+}
+
+.card_img_btn {
+    position: absolute;
+    bottom: 18px;
+    left: 19px;
+    z-index: 1000;
+    width: 106px;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 6px;
+    padding: 8px 20px 9px 24px;
+    display: flex;
+    gap: 3px;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+.card_img_btn:hover {
+    background: gray;
+    color: var(--white);
+}
+
+.card_img_btn span {
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 16px;
+}
+
+.second_section_card p {
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 19px;
+}
+
+.second_section_card p span {
+    font-weight: 600;
+    font-size: 1.4rem;
+    line-height: 16px;
+}
+
+.another_link {
+    margin-top: 70px;
+    display: flex;
+    justify-content: flex-end;
+    min-width: 1170px;
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 16px;
+    color: var(--gray1);
+}
+
+/* -----------THIRD SECTION CSS-------------------- */
+.third_section_header {
+    text-align: center;
+    margin-top: 92px;
+    margin-bottom: 42px;
+    font-weight: 500;
+    font-size: 3.6rem;
+    line-height: 42px;
+}
+
+.third_section_group_btns {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    margin-bottom: 47px;
+}
+
+.head_btns {
+    font-weight: 700;
+    font-size: 1.6rem;
+    line-height: 19px;
+    border-radius: 9px;
+    background: var(--white);
+    border: 1px solid var(--gray2);
+    outline: none;
+    cursor: pointer;
+}
+
+.btns1 {
+    padding: 16px 32px 15px 33px;
+}
+
+.btns2 {
+    padding: 16px 39px 15px 37px;
+}
+
+.btns3 {
+    padding: 16px 28px 15px 27px;
+}
+
+.head_btns:hover {
+    background: rgba(72, 106, 166, 0.89);
+    color: var(--white);
+}
+
+main {
+    background: var(--white1);
+}
+
+.third_section_grid_cards {
+    max-width: 1170px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(278px, 1fr));
+    gap: 19px;
+    margin: 0 auto;
+}
+
+.third_section_card {
+    min-width: 278px;
+    height: 433px;
+    background: #FCFCFC;
+    box-shadow: 0px 0px 9px rgba(69, 69, 69, 0.18);
+    border-radius: 6px;
+
+    /* padding: ; */
+}
+
+.giveSidesGap {
+    padding: 16px 13px 18px 13px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.select_product {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.btn_for_the_basket {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    padding: 9px 20px 9px 24px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: #EDECEC;
+    border-radius: 6px;
+}
+
+.btn_for_the_basket span {
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 16px;
+}
+
+.favorite_card_btn {
+    background: #EDECEC;
+    border-radius: 6px;
+    padding: 10px 15px 9px 16px;
+    cursor: pointer;
+}
+
+/* -----------------FOURTH SECTION CSS-------------------------- */
+.fourth_section_header {
+    margin-top: 96px;
+    margin-bottom: 42px;
+    text-align: center;
+}
+
+.fourth_section_content {
+    display: flex;
+    max-width: 1250px;
+    margin: 0 auto;
+    gap: 10px;
+    align-items: center;
+
+}
+
+.fourth_section_content svg {
+    cursor: pointer;
+}
+
+.fourth_section_bg_img {
+    background: url('../images/pet-accessories-still-life-concept-with-grooming-objects-food\ 1.png');
+    padding: 36px 54px 36px 54px;
+}
+
+.fourth_section_slider {
+    max-width: 1170px;
+    display: flex;
+    gap: 19px;
+}
+
+.fourt_section_slider_card {
+    min-width: 278px;
+    height: 261px;
+    background: var(--white);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 17px;
+}
+
+/* ------------FOOTER CSS---------------------- */
+footer {
+    margin-top: 189px;
+    background: var(--gray3);
+    height: 316px;
+}
+
+.brend_name_products {
+    display: flex;
+    max-width: 1170px;
+    margin: 0 auto;
+    padding-top: 41px;
+    justify-content: space-between;
+
+}
+
+.brend_name_products img {
+    width: 110px;
+    height: 45px;
+}
+
+.footer_line {
+    width: 100%;
+    height: 1px;
+    border: 1px solid #FFFFFF;
+    margin-top: 34px;
+    margin-bottom: 45px;
+}
+
+.footer_navbar {
+    max-width: 1170px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.footer_links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-right: 124px;
+}
+
+.link {
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 16px;
+    color: rgb(0, 0, 0) !important;
+}
+
+.footer_search {
+    display: flex;
+    background: rgba(29, 29, 27, 0.17);
+    border-radius: 6px;
+    width: 355px;
+    height: 40px;
+    margin-right: 85px;
+}
+
+.footer_search input {
+    width: 80%;
+    background: none;
+    border: none;
+    outline: none;
+    margin-left: 10px;
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.send_icon {
+    background: var(--white) !important;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 0 6px 6px 0;
+
+}
+
+.playMarket {
+    margin-right: 73px;
 }
