@@ -1,0 +1,26 @@
+[
+    {
+        "id":1,
+        "image":"../images/closeup-shot-ginger-cat-wicker-basket-isolated-white-wall 1.png",
+        "title":"Pişik evi",
+        "price":42
+    },
+    {
+        "id":2,
+        "image":"../images/street-fashioned-brown-white-dog-cool-black-hoodie-trucker-cap-with-mesh-back-rustic-wooden-table 1.png",
+        "title":"İt üçün köynək",
+        "price":60
+    },
+    {
+        "id":3,
+        "image":"../images/pets-food-wooden-floor 1.png",
+        "title":"Yemək qabları",
+        "price":35
+    },
+    {
+        "id":4,
+        "image":"../images/image 1.png",
+        "title":"Müxtəlif tasmalar",
+        "price":22
+    }
+]
