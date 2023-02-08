@@ -2,6 +2,8 @@ let navbarList = document.querySelectorAll(".fist_list_droptown");
 let subList = document.querySelectorAll(".sub_list");
 let thirdSectionCards = document.querySelector(".third_section_grid_cards");
 let secondSectionCards = document.querySelector(".second_section_content");
+let sliderCards=document.querySelector('.slider_cards');
+console.log(sliderCards)
 console.log(thirdSectionCards);
 console.log(navbarList.length);
 console.log(subList);
@@ -133,33 +135,16 @@ fetch("../data/newTrendProduct.json")
     });
   });
 
-// for (let i = 0; i < navbarList.length; i++) {
-//   navbarList[i].addEventListener("click", () => {
-//     for (let j = 0; j < navbarList.length; j++) {
-//       if(navbarList[j].firstElementChild.innerHTML=='Servis'){
-//          subList[j].classList.toggle('active_list');
-//       }else if(navbarList[j].firstElementChild.innerHTML=='Heyvan məhsulları'){
-//         subList[j].classList.toggle('active_list');
-//       }
-// switch (navbarList[i].firstElementChild.innerHTML) {
-//   case "Servis":
-//     subList[i].classList.toggle("active_list");
-//     break;
-//   case "Heyvan məhsulları":
-//     subList[i].classList.toggle("active_list");
-//     break;
-//   case "Aptek ləvazimatları":
-//     subList[i].classList.toggle("active_list");
-//     break;
-//   case "Heyvanların baxımı və müayinəsi":
-//     subList[i].classList.toggle("active_list");
-//     break;
-//   case "Heyvanlar üçün aktivitə":
-//     subList[i].classList.toggle("active_list");
-//     break;
-//   default:
-//     break;
-// }
-//     }
-//   });
-// }
+fetch('../data/productForAnimal.json')
+.then(resp=>resp.json())
+.then(data=>{
+  data.forEach(element=>{
+    sliderCards.innerHTML+=
+    `
+    <div class="card_content">
+    <img src="${element.image}" />
+    <p>${element.description}</p>
+    </div>
+    `
+  })
+})

@@ -1,0 +1,17 @@
+[
+{
+    "id":1,
+    "image":"../images/image 3.png",
+    "description":"İtlər üçün"
+},
+{
+    "id":2,
+    "image":"../images/cat-white-background 1.png",
+    "description":"Pişiklər üçün"
+},
+{
+    "id":3,
+    "image":"../images/image 2.png",
+    "description":"Dovşanlar üçün"
+}
+]
