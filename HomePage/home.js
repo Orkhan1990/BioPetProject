@@ -3,11 +3,12 @@ let subList = document.querySelectorAll(".sub_list");
 let thirdSectionCards = document.querySelector(".third_section_grid_cards");
 let secondSectionCards = document.querySelector(".second_section_content");
 let sliderCards=document.querySelector('.slider_cards');
-console.log(sliderCards)
-console.log(thirdSectionCards);
-console.log(navbarList.length);
-console.log(subList);
-console.log(secondSectionCards);
+let firstSectionLeftArrow=document.querySelector('.first_section_slider_left_arrow');
+let firstSectionRightArrow=document.querySelector('.first_section_slider_right_arrow');
+let brendNameProducts=document.querySelector('.brend_name_products');
+
+
+
 
 fetch("../data/product.json")
   .then((resp) => resp.json())
@@ -146,5 +147,61 @@ fetch('../data/productForAnimal.json')
     <p>${element.description}</p>
     </div>
     `
+    
+  })
+  let count=0;
+  function slider(){
+    for(let i=0;i<sliderCards.children.length;i++){
+         sliderCards.children[i].style.transform=`translateX(${-290*count}px)`;
+         sliderCards.children[i].classList.remove('active_card');
+    }
+    sliderCards.children[count+1].classList.add('active_card');
+  }
+  setInterval(() => {
+    if(count<sliderCards.children.length-3){
+      count++;
+      slider();
+    }else{
+      count=0;
+      slider();
+    }
+    
+  }, 3000);
+
+  firstSectionRightArrow.addEventListener('click',()=>{
+    if(count<sliderCards.children.length-3){
+      count++;
+      slider();
+    }else{
+      count=0;
+      slider();
+    }
+  })
+  firstSectionLeftArrow.addEventListener('click',()=>{
+    if(count>sliderCards.children.length){
+      count--;
+      slider();
+    }else{
+      count=0;
+      slider();
+    }
   })
 })
+
+let footerCount=0;
+function footerSlider(){
+  for(let i=0;i<brendNameProducts.children.length;i++){
+    brendNameProducts.children[i].style.transform=`translateX(${-200*footerCount}px)`;
+  }
+}
+setInterval(() => {
+  if(footerCount<brendNameProducts.children.length-5){
+    footerCount++;
+    footerSlider();
+  }else{
+    footerCount=0;
+    footerSlider();
+  }
+}, 3000);
+
+
