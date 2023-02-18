@@ -90,7 +90,17 @@ header {
     font-size: 1.4rem;
     line-height: 16px;
 }
-
+.header_button:hover{
+    background: var(--yellow1);
+    
+}
+.sign_in{
+    cursor: pointer;
+}
+.sign_in:hover{
+    background: var(--blue);
+    color:var(--white);
+}
 .language {
     background: none;
     border: none;
@@ -106,8 +116,13 @@ header {
 
 .circle {
     position: absolute;
-    bottom: 15px;
+    bottom: 20px;
     right: 0px;
+    background: #FDDE01 !important;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .header_navbar {
@@ -290,8 +305,6 @@ header {
 }
 
 .card_content {
-    /* width: 210px;
-    height: 312px; */
     display: flex;
     align-items: center;
     flex-direction: column;

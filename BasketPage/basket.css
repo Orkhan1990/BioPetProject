@@ -1,0 +1,333 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+:root {
+    --white: #ffff;
+    --white1: #E5E5E5;
+    --black: #0000;
+    --blue: #486aa6;
+    --yellow1: #C1D72D;
+    --gray1: #968D8D;
+    --gray2: #979797;
+    --gray3: #cecbcd;
+}
+html {
+    font-size: 10px;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.header_head_container {
+    height: 90px;
+    background: #f4f5f7;
+    width: 100%;
+}
+
+.header_head {
+    display: flex;
+    max-width: 1170px;
+    margin: 0 auto;
+    justify-content: space-between;
+    height: 100%;
+    align-items: center;
+}
+
+.header_logo {
+    width: 239px;
+    height: 70px;
+    margin-top: 20px;
+}
+
+.header_icons {
+    display: flex;
+    align-items: center;
+    gap: 33px;
+}
+
+.header_input {
+    background: rgba(150, 141, 141, 0.16);
+    border-radius: 6px;
+    width: 199px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+}
+
+.header_input input {
+    border: none;
+    outline: none;
+    background: none;
+    margin-left: 5px;
+}
+
+.header_button {
+    background: #486AA6;
+    border-radius: 4px;
+    padding: 10px;
+    color: var(--white);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.4rem;
+    line-height: 16px;
+}
+
+.language {
+    background: none;
+    border: none;
+    outline: none;
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 16px;
+}
+
+.basket_circle {
+    position: relative;
+}
+
+.circle {
+    position: absolute;
+    bottom: 15px;
+    right: 0px;
+}
+
+.header_navbar {
+    height: 50px;
+    background: var(--blue)
+}
+
+.header_navbar_list {
+    display: flex;
+    max-width: 1092px;
+    margin: 0 auto;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.header_navbar a {
+    color: var(--white);
+    font-weight: 300;
+    font-size: 1.8rem;
+    line-height: 21px;
+}
+
+.sub_list {
+    width: 250px;
+    min-height: 250px;
+    background: #FFFFFF;
+    border-radius: 4px;
+    z-index: 1000;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 50px;
+    left:-5000px;
+    padding-top: 20px;
+}
+.fist_list_droptown:hover>a{
+    color: #FDDE01 !important;
+}
+.fist_list_droptown:hover>svg{
+    transform: rotate(180deg);
+    transition: .7s;
+    fill:rgb(253, 222, 1) !important;
+}
+
+.active_list{
+    left:0;
+}
+.fist_list_droptown:hover>.sub_list{
+    left:0;
+}
+.sub_list li{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.sub_list li:hover{
+    background: rgba(42, 19, 132, 0.22);
+    width: 100% !important;
+    height: 100%;
+}
+.active_card{
+    margin-top: 150px;
+}
+
+.sub_list a {
+    color: black;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 14px;
+    padding-left:10px;
+}
+
+.fist_list_droptown {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap:5px;
+}
+.up_arrow{
+    color:var(--white);
+    font-size: 2.2rem;
+    font-weight: 600;
+    display: none;
+}
+/* ------------MAIN CSS---------------------- */
+
+main{
+   min-height: 100vh;
+    background: var(--white1);
+    
+}
+
+.basket_card_container{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    /* padding-top:20px;
+    padding-bottom: 20px; */
+    padding: 20px;
+}
+.basket_card{
+  display:flex;
+  gap:50px;
+}
+
+.basket_card_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:10px;
+    width:500px
+}
+.fa-trash{
+    cursor: pointer;
+    font-size: 2rem;
+    width:10px;
+}
+.basket_price_count{
+    display: flex;
+    gap:50px;
+    width: 100%;
+}
+
+.basket_price_count button {
+   padding:5px 20px 5px 20px;
+   cursor: pointer;
+   background: #007bff;
+   color:var(--white);
+   border: none;
+   outline:none;
+   border-radius: 4px;
+}
+.basket_price_count button:hover{
+    background:var(--yellow1);
+}
+
+.basket_count{
+    font-weight: 700;
+}
+
+.fa-trash:hover{
+    color:var(--yellow1);
+}
+
+/* ------------FOOTER CSS---------------------- */
+footer {
+    /* margin-top: 189px; */
+    background: var(--gray3);
+    height: 316px;
+}
+
+.brend_name_products {
+    display: flex;
+    max-width: 1170px;
+    margin: 0 auto;
+    padding-top: 41px;
+    justify-content: space-between;
+
+}
+
+.brend_name_products img {
+    width: 110px;
+    height: 45px;
+    overflow: hidden;
+
+}
+
+.footer_line {
+    width: 100%;
+    height: 1px;
+    border: 1px solid #FFFFFF;
+    margin-top: 34px;
+    margin-bottom: 45px;
+}
+
+.footer_navbar {
+    max-width: 1170px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.footer_links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-right: 124px;
+}
+
+.link {
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 16px;
+    color: rgb(0, 0, 0) !important;
+}
+
+.footer_search {
+    display: flex;
+    background: rgba(29, 29, 27, 0.17);
+    border-radius: 6px;
+    width: 355px;
+    height: 40px;
+    margin-right: 85px;
+}
+
+.footer_search input {
+    width: 80%;
+    background: none;
+    border: none;
+    outline: none;
+    margin-left: 10px;
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.send_icon {
+    background: var(--white) !important;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 0 6px 6px 0;
+
+}
+
+.playMarket {
+    margin-right: 73px;
+}

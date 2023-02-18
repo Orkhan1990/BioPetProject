@@ -8,6 +8,9 @@ let firstSectionRightArrow=document.querySelector('.first_section_slider_right_a
 let brendNameProducts=document.querySelector('.brend_name_products');
 let thirdSectionGroupBtns=document.querySelector('.third_section_group_btns');
 let headBtns=document.querySelectorAll('.head_btns');
+let basketCircle=document.querySelector('.circle');
+
+console.log(basketCircle);
 
 
 
@@ -98,8 +101,8 @@ fetch("../data/product.json")
 
 fetch("../data/newTrendProduct.json")
   .then((resp) => resp.json())
-  .then((items) => {
-    items.forEach((item) => {
+  .then((data) => {
+    data.forEach((item) => {
       console.log(item);
       secondSectionCards.innerHTML += `
     <div class="second_section_card">
@@ -158,6 +161,8 @@ fetch("../data/newTrendProduct.json")
     });
   });
 
+
+ 
 fetch('../data/productForAnimal.json')
 .then(resp=>resp.json())
 .then(data=>{
@@ -227,5 +232,24 @@ setInterval(() => {
 }, 3000);
 
 
+// -------------------add to basket processing------------------------
+let basket=JSON.parse(localStorage.getItem("sebet"))||[];
+function addToBasket(id){
+fetch('../data/newTrendProduct.json')
+.then(resp=>resp.json())
+.then((data)=>{
+    let checkBasket=basket.find(p=>p.id===id);
+    if(checkBasket){
+      checkBasket.count=checkBasket.count+1;
+    }else{
+      let findNewProductFromArray=data.find(p=>p.id===id);
+      findNewProductFromArray.count=1;
+      basket.push(findNewProductFromArray);
+      localStorage.setItem("sebet",JSON.stringify(basket));
+    }
+})
+}
+
+basketCircle.innerHTML=basket.length
 
 
