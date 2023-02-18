@@ -451,7 +451,7 @@ header {
     padding: 16px 28px 15px 27px;
 }
 
-.head_btns:hover {
+.active_btn {
     background: rgba(72, 106, 166, 0.89);
     color: var(--white);
 }
@@ -474,8 +474,25 @@ main {
     background: #FCFCFC;
     box-shadow: 0px 0px 9px rgba(69, 69, 69, 0.18);
     border-radius: 6px;
+}
 
-    /* padding: ; */
+.third_section_card.show{
+    /* display:block; */
+    animation: ehmed 1s;
+}
+@keyframes ehmed {
+    0%{
+        transform: scale(0);
+    }
+    50%{
+        transform: scale(1.02);
+    }
+    100%{
+        transform: scale(1.05);
+    }
+}
+.third_section_card.hide{
+    display:none;
 }
 
 .giveSidesGap {

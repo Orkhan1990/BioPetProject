@@ -6,6 +6,8 @@ let sliderCards=document.querySelector('.slider_cards');
 let firstSectionLeftArrow=document.querySelector('.first_section_slider_left_arrow');
 let firstSectionRightArrow=document.querySelector('.first_section_slider_right_arrow');
 let brendNameProducts=document.querySelector('.brend_name_products');
+let thirdSectionGroupBtns=document.querySelector('.third_section_group_btns');
+let headBtns=document.querySelectorAll('.head_btns');
 
 
 
@@ -16,7 +18,7 @@ fetch("../data/product.json")
     console.log(data);
     data.forEach((element) => {
       thirdSectionCards.innerHTML += `
-    <div class="third_section_card">
+    <div data-name=${element.dataName} class="third_section_card">
             <div class="giveSidesGap">
               <img
                 src="${element.image}"
@@ -71,6 +73,26 @@ fetch("../data/product.json")
               </div>
             </div>
     `;
+    for(let i=0;i<headBtns.length;i++){
+      headBtns[i].addEventListener("click",()=>{
+        thirdSectionGroupBtns.querySelector('.active_btn').classList.remove('active_btn');
+        headBtns[i].classList.add('active_btn');
+        let filterBtn=headBtns[i].getAttribute('data-name');
+        let thirdSectionCard=document.querySelectorAll('.third_section_card');
+        for(let j=0;j<thirdSectionCard.length;j++){
+          let filterCard=thirdSectionCard[j].getAttribute('data-name');
+          if(filterCard===filterBtn ||filterBtn==="all"){
+            thirdSectionCard[j].classList.add('show');
+            thirdSectionCard[j].classList.remove('hide');
+          }else{
+            thirdSectionCard[j].classList.add('hide');
+            thirdSectionCard[j].classList.remove('show');
+          }
+          
+        }
+      })
+    }
+    
     });
   });
 
@@ -203,5 +225,7 @@ setInterval(() => {
     footerSlider();
   }
 }, 3000);
+
+
 
 
