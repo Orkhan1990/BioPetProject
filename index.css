@@ -604,15 +604,20 @@ footer {
     margin: 0 auto;
     padding-top: 41px;
     justify-content: space-between;
-
-}
-
-.brend_name_products img {
-    width: 110px;
-    height: 45px;
+    gap:140px;
     overflow: hidden;
+    height: 150px;
 
 }
+.brend_name_img{
+    width:196px;
+    height: 69px;
+    padding-bottom:5px;
+}
+/* .brend_name_img img{
+    width: 100%;
+    height: 100%;
+} */
 
 .footer_line {
     width: 100%;
