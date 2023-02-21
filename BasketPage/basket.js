@@ -1,9 +1,10 @@
 let basketCards = document.querySelector(".basket_cards");
 let totalPriceCount=document.querySelector(".total_price_count");
 console.log(totalPriceCount);
-let countArray=[];
+
 
 function showBasket(arr) {
+  let countArray=[];
   if (arr.length == 0) {
     basketCards.innerHTML = `
          <div class="empty_basket">
@@ -51,9 +52,23 @@ function showBasket(arr) {
              </div>
              </div>
              `;  
+             
+             countArray.push(element.price*element.count)
+             let result=0;
+             for(let i=0;i<countArray.length;i++){
+                result+=countArray[i];
+             }
+            
+         
+             totalPriceCount.innerHTML=`${result}`;
+            
     });
   }
 }
+
+// if (basket.length==0) {
+//   document.querySelector(".total_price").classList.add('hide_total_price');
+// }
 
 const addToTrash = (id) => {
   let indexOfProduct = basket.findIndex((p) => p.id === id);
@@ -75,17 +90,6 @@ function addCount(event, id) {
   }
   localStorage.setItem("sebet", JSON.stringify(basket));
   showBasket(basket);
-  let result=0;
-  for(let i=0;i<basket.length;i++){
-     countArray.push(basket[i].price);
-     result+=countArray[i];
-  }
-  totalPriceCount.innerHTML=result;
-  showBasket(basket)
 }
-
-//function countTotalPriceInBasket(){
-   
-//}
 
 window.addEventListener("load", showBasket(basket));

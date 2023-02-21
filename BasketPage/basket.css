@@ -252,12 +252,16 @@ main{
     background:var(--yellow1);
 }
 
+
 .basket_count{
     font-weight: 700;
 }
 
 .fa-trash:hover{
     color:var(--yellow1);
+}
+.hide_total_price{
+    display: none;
 }
 
 /* ------------FOOTER CSS---------------------- */

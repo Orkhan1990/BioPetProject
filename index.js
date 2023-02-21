@@ -10,6 +10,8 @@ let thirdSectionGroupBtns=document.querySelector('.third_section_group_btns');
 let headBtns=document.querySelectorAll('.head_btns');
 let basketCircle=document.querySelector('.circle');
 
+let newFavoriteArray=[];
+
 
 
 
@@ -110,12 +112,16 @@ fetch("../data/newTrendProduct.json")
         src="${item.image}"
       />
       <div class="favorite_product" onclick='addToFavoriteGroup(${item.id})'>
+       <svg  class="red_heart"  id="Layer_1${item.id}" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 107.39"><defs><style>.cls-1{fill:#ed1b24;fill-rule:evenodd;}</style></defs><title>red-heart</title><path class="cls-1" d="M60.83,17.18c8-8.35,13.62-15.57,26-17C110-2.46,131.27,21.26,119.57,44.61c-3.33,6.65-10.11,14.56-17.61,22.32-8.23,8.52-17.34,16.87-23.72,23.2l-17.4,17.26L46.46,93.55C29.16,76.89,1,55.92,0,29.94-.63,11.74,13.73.08,30.25.29c14.76.2,21,7.54,30.58,16.89Z"/></svg>
         <svg
+          id="simple_heart${item.id}"
+          class="simple_heart_without_color"
           width="22"
           height="18"
           viewBox="0 0 22 18"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+         
         >
           <path
             d="M20.1046 9.26959C22.2642 7.14738 22.2642 3.69662 20.1046 1.59166C17.9451 -0.530554 14.4336 -0.530554 12.2741 1.59166L11.2206 2.62689L10.1672 1.59166C8.00763 -0.530554 4.49616 -0.530554 2.35417 1.59166C1.30073 2.60963 0.738892 3.98994 0.738892 5.43925C0.738892 6.88857 1.31828 8.25162 2.35417 9.28685L11.2206 18L20.1046 9.26959ZM2.12592 5.43925C2.12592 4.35226 2.5473 3.33429 3.33738 2.57513C4.14502 1.78145 5.19846 1.38462 6.2519 1.38462C7.30534 1.38462 8.35878 1.78145 9.16642 2.57513L11.2206 4.57656L13.2748 2.55787C14.8901 0.970525 17.5062 0.970525 19.1039 2.55787C19.8764 3.31704 20.3153 4.33501 20.3153 5.422C20.3153 6.50899 19.894 7.52696 19.1039 8.28613L11.2206 16.0503L3.33738 8.30338C2.56486 7.52696 2.12592 6.50899 2.12592 5.43925Z"
@@ -161,6 +167,20 @@ fetch("../data/newTrendProduct.json")
   });
 
 
+  function addToFavoriteGroup(id){
+    let redHeart=document.getElementById(`Layer_1${id}`);
+    let simpleHeart=document.getElementById(`simple_heart${id}`);
+    redHeart.classList.toggle('red_heart');
+    simpleHeart.classList.toggle('red_heart');
+    fetch("../data/newTrendProduct.json")
+  .then((resp) => resp.json())
+  .then((data)=>{
+     let findFaworite=data.find(p=>p.id==id);
+     newFavoriteArray.push(findFaworite);
+     localStorage.setItem("sevimliSebet",JSON.stringify(newFavoriteArray));
+  })
+
+  }
  
 fetch('../data/productForAnimal.json')
 .then(resp=>resp.json())
@@ -268,5 +288,6 @@ function addToCart(id){
     basketCircle.innerHTML=basket.length;
 })
 }
+
 
 

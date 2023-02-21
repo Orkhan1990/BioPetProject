@@ -339,6 +339,15 @@ header {
     gap: 10px;
 }
 
+.show_red_heart{
+    display: block;
+}
+.hide_simple_heart{
+    display:none;
+}
+.red_heart{
+    display:none;
+}
 .second_section_card {
     min-width: 278px;
     height: 245px;
