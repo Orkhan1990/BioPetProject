@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --white: #ffff;
+    --white1: #E5E5E5;
+    --black: #0000;
+    --blue: #486aa6;
+    --yellow1: #C1D72D;
+    --gray1: #968D8D;
+    --gray2: #979797;
+    --gray3: #cecbcd;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+
+/* ------------HEADER CSS---------------------- */
+
+
+.header_head_container {
+    height: 90px;
+    background: #f4f5f7;
+    width: 100%;
+}
+
+.header_head {
+    display: flex;
+    max-width: 1170px;
+    margin: 0 auto;
+    justify-content: space-between;
+    height: 100%;
+    align-items: center;
+}
+
+.header_logo {
+    width: 239px;
+    height: 70px;
+    margin-top: 20px;
+}
+
+.header_icons {
+    display: flex;
+    align-items: center;
+    gap: 33px;
+}
+.language {
+    background: none;
+    border: none;
+    outline: none;
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 16px;
+}
+
+
+/* ------------MAIN CSS---------------------- */
+
+main{
+    min-height: 80vh;
+    background: var(--white1);
+  
+}
+.main_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;
+    gap: 20px;
+   
+}
+
+
+.main_container h2{
+    font-size: 3.5rem;
+}
+.main_container form{
+    background: var(--white);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 2px 4px 26px 4px rgba(0,0,0,0.56);
+    -webkit-box-shadow: 2px 4px 26px 4px rgba(0,0,0,0.56);
+    -moz-box-shadow: 2px 4px 26px 4px rgba(0,0,0,0.56);
+    width: 400px;
+
+}
+.main_container form a{
+    color:#486aa6
+}
+
+.login_input{
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 2px;
+    outline: none;
+    background: var(--white1);
+}
+.terms_of_login{
+    display: flex;
+    align-items: center;
+    gap:10px;
+    margin-bottom: 10px;
+}
+.terms_of_login p{
+    font-size: 1.5rem;
+}
+.terms_forgot_password{
+    display: flex;
+    justify-content: space-between;
+}
+.terms_forgot_password a{
+    font-size: 1.5rem;
+}
+.login_buttons{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    gap:10px;
+    
+}
+.error_message{
+    color:red;
+}
+
+.login_buttons button{
+    padding: 8px 20px 8px 20px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background: #486aa6;
+    color:white;
+    cursor: pointer;
+}
+.login_buttons button:hover{
+    background: var(--yellow1);
+}
+.login_buttons button a{
+    color:var(--white)
+   }
+
+
+
+/* ------------FOOTER CSS---------------------- */
+footer {
+    background: var(--gray3);
+    height: 352px;
+}
+
+.brend_name_products {
+    display: flex;
+    max-width: 1170px;
+    margin: 0 auto;
+    padding-top: 41px;
+    justify-content: space-between;
+    gap:140px;
+    overflow: hidden;
+    height: 150px;
+
+}
+.brend_name_img{
+    width:196px;
+    height: 69px;
+    padding-bottom:5px;
+}
+
+
+.footer_line {
+    width: 100%;
+    height: 1px;
+    border: 1px solid #FFFFFF;
+    margin-top: 34px;
+    margin-bottom: 45px;
+}
+
+.footer_navbar {
+    max-width: 1170px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.footer_links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-right: 124px;
+}
+
+.link {
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 16px;
+    color: rgb(0, 0, 0) !important;
+}
+
+.footer_search {
+    display: flex;
+    background: rgba(29, 29, 27, 0.17);
+    border-radius: 6px;
+    width: 355px;
+    height: 40px;
+    margin-right: 85px;
+}
+
+.footer_search input {
+    width: 80%;
+    background: none;
+    border: none;
+    outline: none;
+    margin-left: 10px;
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.send_icon {
+    background: var(--white) !important;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 0 6px 6px 0;
+
+}
+
+.playMarket {
+    margin-right: 73px;
+}
