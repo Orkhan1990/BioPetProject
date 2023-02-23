@@ -1,7 +1,8 @@
 let basket=JSON.parse(localStorage.getItem("sebet"))||[];
 let favoriteBasket=JSON.parse(localStorage.getItem("sevimliSebet"))||[];
 let registerUsers = JSON.parse(localStorage.getItem("registerUser"))||[];
-let logedInUser=localStorage.getItem("logedUser");
+let logedInUser=JSON.parse(localStorage.getItem("logedInUser"));
+
 
 let user={
  id:1,

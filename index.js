@@ -9,11 +9,20 @@ let brendNameProducts=document.querySelector('.brend_name_products');
 let thirdSectionGroupBtns=document.querySelector('.third_section_group_btns');
 let headBtns=document.querySelectorAll('.head_btns');
 let basketCircle=document.querySelector('.circle');
+let fullName=document.querySelector('.fulllname');
+let signOutIcon=document.querySelector('.fa-right-from-bracket');
 
 let newFavoriteArray=[];
 
 
+// -------------------HomePage Block when user loge in ------------------------
 
+window.addEventListener('load',()=>{
+  if(!localStorage.getItem("logedInUser")){
+     event.preventDefault();
+     window.location.href="./LoginPage/login.html"
+  }
+})
 
 
 fetch("../data/product.json")
@@ -289,5 +298,13 @@ function addToCart(id){
 })
 }
 
+// -------------------HomePage add username------------------------
+
+fullName.innerHTML=`${logedInUser.name} ${logedInUser.surname}`
+
+signOutIcon.addEventListener('click',()=>{
+  localStorage.removeItem('logedInUser');
+  window.location.href='./LoginPage/login.html'
+})
 
 

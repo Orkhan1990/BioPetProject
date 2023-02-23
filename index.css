@@ -691,3 +691,10 @@ footer {
 .playMarket {
     margin-right: 73px;
 }
+
+.fa-right-from-bracket{
+    cursor: pointer;
+}
+.fa-right-from-bracket:hover{
+ color:#3572da
+}

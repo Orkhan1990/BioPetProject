@@ -26,6 +26,7 @@ registerButton.addEventListener("click", () => {
       if (passwordOfUser.value === confirmPasswordOfUser.value) {
         if(checkTerms.checked==true){
             let newUser = {};
+            newUser.id=registerUsers.length+1;
             newUser.name = nameOfUser.value;
             newUser.surname = surnameOfUser.value;
             newUser.email = emailOfUser.value;
@@ -33,7 +34,7 @@ registerButton.addEventListener("click", () => {
             newUser.confPassword = confirmPasswordOfUser.value;
             registerUsers.push(newUser);
             localStorage.setItem("registerUser", JSON.stringify(registerUsers));
-            window.location.href='../LoginPage/login.html';
+            // window.location.href='../LoginPage/login.html';
         }else{
             errorMessage.innerHTML="Qaydaları qebul etmədiyinizə görə qeydiyyatdan keçmək mümkün deyil!"
         }
