@@ -75,7 +75,7 @@ ul li {
 /* ------------MAIN CSS---------------------- */
 
 main{
-    min-height: 100vh;
+    min-height: 120vh;
     background: var(--white1);
   
 }
@@ -158,6 +158,11 @@ main{
 }
 .error_message{
     color:red;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+.changeColor{
+    color:#2da1d7;
     font-size: 1.5rem;
     margin-bottom: 15px;
 }

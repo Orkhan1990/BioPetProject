@@ -113,6 +113,11 @@ header {
 .basket_circle {
     position: relative;
 }
+.fullName_logout_icon{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
 
 .circle {
     position: absolute;

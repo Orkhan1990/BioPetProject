@@ -2,28 +2,30 @@ let navbarList = document.querySelectorAll(".fist_list_droptown");
 let subList = document.querySelectorAll(".sub_list");
 let thirdSectionCards = document.querySelector(".third_section_grid_cards");
 let secondSectionCards = document.querySelector(".second_section_content");
-let sliderCards=document.querySelector('.slider_cards');
-let firstSectionLeftArrow=document.querySelector('.first_section_slider_left_arrow');
-let firstSectionRightArrow=document.querySelector('.first_section_slider_right_arrow');
-let brendNameProducts=document.querySelector('.brend_name_products');
-let thirdSectionGroupBtns=document.querySelector('.third_section_group_btns');
-let headBtns=document.querySelectorAll('.head_btns');
-let basketCircle=document.querySelector('.circle');
-let fullName=document.querySelector('.fulllname');
-let signOutIcon=document.querySelector('.fa-right-from-bracket');
+let sliderCards = document.querySelector(".slider_cards");
+let firstSectionLeftArrow = document.querySelector(
+  ".first_section_slider_left_arrow"
+);
+let firstSectionRightArrow = document.querySelector(
+  ".first_section_slider_right_arrow"
+);
+let brendNameProducts = document.querySelector(".brend_name_products");
+let thirdSectionGroupBtns = document.querySelector(".third_section_group_btns");
+let headBtns = document.querySelectorAll(".head_btns");
+let basketCircle = document.querySelector(".circle");
+let fullName = document.querySelector(".fulllname");
+let signOutIcon = document.querySelector(".fa-right-from-bracket");
 
-let newFavoriteArray=[];
-
+let newFavoriteArray = [];
 
 // -------------------HomePage Block when user loge in ------------------------
 
-window.addEventListener('load',()=>{
-  if(!localStorage.getItem("logedInUser")){
-     event.preventDefault();
-     window.location.href="./LoginPage/login.html"
+window.addEventListener("load", () => {
+  if (!localStorage.getItem("logedInUser")) {
+    event.preventDefault();
+    window.location.href = "./LoginPage/login.html";
   }
-})
-
+});
 
 fetch("../data/product.json")
   .then((resp) => resp.json())
@@ -86,26 +88,28 @@ fetch("../data/product.json")
               </div>
             </div>
     `;
-    for(let i=0;i<headBtns.length;i++){
-      headBtns[i].addEventListener("click",()=>{
-        thirdSectionGroupBtns.querySelector('.active_btn').classList.remove('active_btn');
-        headBtns[i].classList.add('active_btn');
-        let filterBtn=headBtns[i].getAttribute('data-name');
-        let thirdSectionCard=document.querySelectorAll('.third_section_card');
-        for(let j=0;j<thirdSectionCard.length;j++){
-          let filterCard=thirdSectionCard[j].getAttribute('data-name');
-          if(filterCard===filterBtn ||filterBtn==="all"){
-            thirdSectionCard[j].classList.add('show');
-            thirdSectionCard[j].classList.remove('hide');
-          }else{
-            thirdSectionCard[j].classList.add('hide');
-            thirdSectionCard[j].classList.remove('show');
+      for (let i = 0; i < headBtns.length; i++) {
+        headBtns[i].addEventListener("click", () => {
+          thirdSectionGroupBtns
+            .querySelector(".active_btn")
+            .classList.remove("active_btn");
+          headBtns[i].classList.add("active_btn");
+          let filterBtn = headBtns[i].getAttribute("data-name");
+          let thirdSectionCard = document.querySelectorAll(
+            ".third_section_card"
+          );
+          for (let j = 0; j < thirdSectionCard.length; j++) {
+            let filterCard = thirdSectionCard[j].getAttribute("data-name");
+            if (filterCard === filterBtn || filterBtn === "all") {
+              thirdSectionCard[j].classList.add("show");
+              thirdSectionCard[j].classList.remove("hide");
+            } else {
+              thirdSectionCard[j].classList.add("hide");
+              thirdSectionCard[j].classList.remove("show");
+            }
           }
-          
-        }
-      })
-    }
-    
+        });
+      }
     });
   });
 
@@ -120,11 +124,12 @@ fetch("../data/newTrendProduct.json")
       <img
         src="${item.image}"
       />
-      <div class="favorite_product" onclick='addToFavoriteGroup(${item.id})'>
-       <svg  class="red_heart"  id="Layer_1${item.id}" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 107.39"><defs><style>.cls-1{fill:#ed1b24;fill-rule:evenodd;}</style></defs><title>red-heart</title><path class="cls-1" d="M60.83,17.18c8-8.35,13.62-15.57,26-17C110-2.46,131.27,21.26,119.57,44.61c-3.33,6.65-10.11,14.56-17.61,22.32-8.23,8.52-17.34,16.87-23.72,23.2l-17.4,17.26L46.46,93.55C29.16,76.89,1,55.92,0,29.94-.63,11.74,13.73.08,30.25.29c14.76.2,21,7.54,30.58,16.89Z"/></svg>
+      <div class="favorite_product" >
+       <svg onclick='removeFromFavoriteGroup(${item.id})'  class="red_heart"  id="Layer_1${item.id}"  data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 107.39"><defs><style>.cls-1{fill:#ed1b24;fill-rule:evenodd;}</style></defs><title>red-heart</title><path class="cls-1" d="M60.83,17.18c8-8.35,13.62-15.57,26-17C110-2.46,131.27,21.26,119.57,44.61c-3.33,6.65-10.11,14.56-17.61,22.32-8.23,8.52-17.34,16.87-23.72,23.2l-17.4,17.26L46.46,93.55C29.16,76.89,1,55.92,0,29.94-.63,11.74,13.73.08,30.25.29c14.76.2,21,7.54,30.58,16.89Z"/></svg>
         <svg
+          onclick='addToFavoriteGroup(${item.id})'
           id="simple_heart${item.id}"
-          class="simple_heart_without_color"
+          
           width="22"
           height="18"
           viewBox="0 0 22 18"
@@ -173,138 +178,167 @@ fetch("../data/newTrendProduct.json")
   </div>
     `;
     });
+    // let favoriteProduct=document.querySelector('.favorite_product');
   });
 
+function addToFavoriteGroup(id) {
+  document.getElementById(`Layer_1${id}`).classList.remove("red_heart");
+  document.getElementById(`Layer_1${id}`).classList.add("show_read_heart");
+  document.getElementById(`simple_heart${id}`).style.display = "none";
+  fetch("../data/newTrendProduct.json")
+    .then((resp) => resp.json())
+    .then((data) => {
+      let findFaworite = data.find((p) => p.id == id);
+      newFavoriteArray.push(findFaworite);
+      localStorage.setItem("sevimliSebet", JSON.stringify(newFavoriteArray));
+    });
+}
 
-  function addToFavoriteGroup(id){
-    let redHeart=document.getElementById(`Layer_1${id}`);
-    let simpleHeart=document.getElementById(`simple_heart${id}`);
-    redHeart.classList.toggle('red_heart');
-    simpleHeart.classList.toggle('red_heart');
-    fetch("../data/newTrendProduct.json")
+function removeFromFavoriteGroup(id){
+  document.getElementById(`Layer_1${id}`).classList.remove("show_read_heart");
+  document.getElementById(`Layer_1${id}`).classList.add('red_heart');
+  document.getElementById(`simple_heart${id}`).style.display ="block";
+  let findIndex=favoriteBasket.findIndex(p=>p.id==id);
+  favoriteBasket=favoriteBasket.splice(findIndex,1);
+  localStorage.setItem("sevimliSebet",JSON.stringify(favoriteBasket));
+
+}
+// function addToFavoriteGroup(id){
+//   let redHeart=document.getElementById(`Layer_1${id}`);
+//   let simpleHeart=document.getElementById(`simple_heart${id}`);
+//   redHeart.classList.toggle('red_heart');
+//   simpleHeart.classList.toggle('red_heart');
+//   for(let i=0;i<favoriteProduct.children.length;i++){
+//     if(favoriteProduct.children[i].getAttribute('class')=="red_heart"){
+//       console.log('salam');
+//       fetch("../data/newTrendProduct.json")
+//       .then((resp) => resp.json())
+//       .then((data)=>{
+//          let findFaworite=data.find(p=>p.id==id);
+//          newFavoriteArray.push(findFaworite);
+//          localStorage.setItem("sevimliSebet",JSON.stringify(newFavoriteArray));
+//       })
+//     }else{
+//       let findIndex=favoriteBasket.findIndex(p=>p.id==id);
+//       favoriteBasket.splice(findIndex,1);
+//       localStorage.setItem("sevimliSebet",JSON.stringify(favoriteBasket));
+
+//     }
+//   }
+// }
+
+fetch("../data/productForAnimal.json")
   .then((resp) => resp.json())
-  .then((data)=>{
-     let findFaworite=data.find(p=>p.id==id);
-     newFavoriteArray.push(findFaworite);
-     localStorage.setItem("sevimliSebet",JSON.stringify(newFavoriteArray));
-  })
-
-  }
- 
-fetch('../data/productForAnimal.json')
-.then(resp=>resp.json())
-.then(data=>{
-  data.forEach(element=>{
-    sliderCards.innerHTML+=
-    `
+  .then((data) => {
+    data.forEach((element) => {
+      sliderCards.innerHTML += `
     <div class="card_content">
     <img src="${element.image}" />
     <p>${element.description}</p>
     </div>
-    `
-    
-  })
-  let count=0;
-  function slider(){
-    for(let i=0;i<sliderCards.children.length;i++){
-         sliderCards.children[i].style.transform=`translateX(${-290*count}px)`;
-         sliderCards.children[i].classList.remove('active_card');
+    `;
+    });
+    let count = 0;
+    function slider() {
+      for (let i = 0; i < sliderCards.children.length; i++) {
+        sliderCards.children[i].style.transform = `translateX(${
+          -290 * count
+        }px)`;
+        sliderCards.children[i].classList.remove("active_card");
+      }
+      sliderCards.children[count + 1].classList.add("active_card");
     }
-    sliderCards.children[count+1].classList.add('active_card');
-  }
-  setInterval(() => {
-    if(count<sliderCards.children.length-3){
-      count++;
-      slider();
-    }else{
-      count=0;
-      slider();
-    }
-    
-  }, 3000);
+    setInterval(() => {
+      if (count < sliderCards.children.length - 3) {
+        count++;
+        slider();
+      } else {
+        count = 0;
+        slider();
+      }
+    }, 3000);
 
-  firstSectionRightArrow.addEventListener('click',()=>{
-    if(count<sliderCards.children.length-3){
-      count++;
-      slider();
-    }else{
-      count=0;
-      slider();
-    }
-  })
-  firstSectionLeftArrow.addEventListener('click',()=>{
-    if(count>sliderCards.children.length){
-      count--;
-      slider();
-    }else{
-      count=0;
-      slider();
-    }
-  })
-})
+    firstSectionRightArrow.addEventListener("click", () => {
+      if (count < sliderCards.children.length - 3) {
+        count++;
+        slider();
+      } else {
+        count = 0;
+        slider();
+      }
+    });
+    firstSectionLeftArrow.addEventListener("click", () => {
+      if (count > sliderCards.children.length) {
+        count--;
+        slider();
+      } else {
+        count = 0;
+        slider();
+      }
+    });
+  });
 
-let footerCount=0;
-function footerSlider(){
-  for(let i=0;i<brendNameProducts.children.length;i++){
-    brendNameProducts.children[i].style.transform=`translateX(${-200*footerCount}px)`;
+let footerCount = 0;
+function footerSlider() {
+  for (let i = 0; i < brendNameProducts.children.length; i++) {
+    brendNameProducts.children[i].style.transform = `translateX(${
+      -200 * footerCount
+    }px)`;
   }
 }
 setInterval(() => {
-  if(footerCount<brendNameProducts.children.length-5){
+  if (footerCount < brendNameProducts.children.length - 5) {
     footerCount++;
     footerSlider();
-  }else{
-    footerCount=0;
+  } else {
+    footerCount = 0;
     footerSlider();
   }
 }, 3000);
 
-
 // -------------------add to basket processing------------------------
 // let basket=JSON.parse(localStorage.getItem("sebet"))||[];
-function addToBasket(id){
-fetch('../data/newTrendProduct.json')
-.then(resp=>resp.json())
-.then((data)=>{
-    let checkBasket=basket.find(p=>p.id===id);
-    if(checkBasket){
-      checkBasket.count=checkBasket.count+1;
-    }else{
-      let findNewProductFromArray=data.find(p=>p.id===id);
-      findNewProductFromArray.count=1;
-      basket.push(findNewProductFromArray);
-      localStorage.setItem("sebet",JSON.stringify(basket));
-    }
-    basketCircle.innerHTML=basket.length;
-})
+function addToBasket(id) {
+  fetch("../data/newTrendProduct.json")
+    .then((resp) => resp.json())
+    .then((data) => {
+      let checkBasket = basket.find((p) => p.id === id);
+      if (checkBasket) {
+        checkBasket.count = checkBasket.count + 1;
+      } else {
+        let findNewProductFromArray = data.find((p) => p.id === id);
+        findNewProductFromArray.count = 1;
+        basket.push(findNewProductFromArray);
+        localStorage.setItem("sebet", JSON.stringify(basket));
+      }
+      basketCircle.innerHTML = basket.length;
+    });
 }
 
-basketCircle.innerHTML=basket.length
+basketCircle.innerHTML = basket.length;
 
-function addToCart(id){
-  fetch('../data/product.json')
-.then(resp=>resp.json())
-.then((data)=>{
-    let checkBasket=basket.find(p=>p.id===id);
-    if(checkBasket){
-      checkBasket.count=checkBasket.count+1;
-    }else{
-      let findNewProductFromArray=data.find(p=>p.id===id);
-      findNewProductFromArray.count=1;
-      basket.push(findNewProductFromArray);
-      localStorage.setItem("sebet",JSON.stringify(basket));
-    }
-    basketCircle.innerHTML=basket.length;
-})
+function addToCart(id) {
+  fetch("../data/product.json")
+    .then((resp) => resp.json())
+    .then((data) => {
+      let checkBasket = basket.find((p) => p.id === id);
+      if (checkBasket) {
+        checkBasket.count = checkBasket.count + 1;
+      } else {
+        let findNewProductFromArray = data.find((p) => p.id === id);
+        findNewProductFromArray.count = 1;
+        basket.push(findNewProductFromArray);
+        localStorage.setItem("sebet", JSON.stringify(basket));
+      }
+      basketCircle.innerHTML = basket.length;
+    });
 }
 
 // -------------------HomePage add username------------------------
 
-fullName.innerHTML=`${logedInUser.name} ${logedInUser.surname}`
+fullName.innerHTML = `${logedInUser.name} ${logedInUser.surname}`;
 
-signOutIcon.addEventListener('click',()=>{
-  localStorage.removeItem('logedInUser');
-  window.location.href='./LoginPage/login.html'
-})
-
-
+signOutIcon.addEventListener("click", () => {
+  localStorage.removeItem("logedInUser");
+  window.location.href = "./LoginPage/login.html";
+});

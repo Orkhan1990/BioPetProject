@@ -34,6 +34,9 @@ registerButton.addEventListener("click", () => {
             newUser.confPassword = confirmPasswordOfUser.value;
             registerUsers.push(newUser);
             localStorage.setItem("registerUser", JSON.stringify(registerUsers));
+            errorMessage.classList.remove('error_message');
+            errorMessage.classList.add('changeColor');
+            errorMessage.innerHTML="Qeydiyyatdan uğurla keçdiniz!"
             // window.location.href='../LoginPage/login.html';
         }else{
             errorMessage.innerHTML="Qaydaları qebul etmədiyinizə görə qeydiyyatdan keçmək mümkün deyil!"
