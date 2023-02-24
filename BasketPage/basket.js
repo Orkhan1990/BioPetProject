@@ -2,6 +2,14 @@ let basketCards = document.querySelector(".basket_cards");
 let totalPriceCount=document.querySelector(".total_price_count");
 console.log(totalPriceCount);
 
+// -------------------HomePage Block when user loge in ------------------------
+
+window.addEventListener("load", () => {
+  if (!localStorage.getItem("logedInUser")) {
+    event.preventDefault();
+    window.location.href = "../LoginPage/login.html";
+  }
+});
 
 function showBasket(arr) {
   let countArray=[];

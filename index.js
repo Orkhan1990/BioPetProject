@@ -188,20 +188,22 @@ function addToFavoriteGroup(id) {
   fetch("../data/newTrendProduct.json")
     .then((resp) => resp.json())
     .then((data) => {
-      let findFaworite = data.find((p) => p.id == id);
+      let findFaworite = data.find((p) => p.id === +id);
       newFavoriteArray.push(findFaworite);
       localStorage.setItem("sevimliSebet", JSON.stringify(newFavoriteArray));
     });
 }
 
+
+
 function removeFromFavoriteGroup(id){
+  event.preventDefault();
   document.getElementById(`Layer_1${id}`).classList.remove("show_read_heart");
   document.getElementById(`Layer_1${id}`).classList.add('red_heart');
   document.getElementById(`simple_heart${id}`).style.display ="block";
-  let findIndex=favoriteBasket.findIndex(p=>p.id==id);
-  favoriteBasket=favoriteBasket.splice(findIndex,1);
+  let findIndex=favoriteBasket.findIndex((p)=>p.id===+id);
+  favoriteBasket.splice(findIndex,1);
   localStorage.setItem("sevimliSebet",JSON.stringify(favoriteBasket));
-
 }
 // function addToFavoriteGroup(id){
 //   let redHeart=document.getElementById(`Layer_1${id}`);
