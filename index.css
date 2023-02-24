@@ -17,6 +17,7 @@
 
 html {
     font-size: 10px;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -77,6 +78,9 @@ header {
     outline: none;
     background: none;
     margin-left: 5px;
+}
+#secim_et{
+    transition: 2s;
 }
 
 .header_button {
@@ -589,6 +593,7 @@ main {
 .fourth_section_bg_img {
     background: url('../images/pet-accessories-still-life-concept-with-grooming-objects-food\ 1.png');
     padding: 36px 54px 36px 54px;
+    margin-bottom: 189px;
 }
 
 .fourth_section_slider {
@@ -609,36 +614,32 @@ main {
     gap: 17px;
 }
 
-/* ------------FOOTER CSS---------------------- */
-footer {
-    margin-top: 189px;
-    background: var(--gray3);
-    height: 352px;
-}
 
+/* ---------------FIFTH SECTION CSS--------------- */
+.fifth_section{
+    background: var(--gray3);
+    height: 144px;
+}
 .brend_name_products {
     display: flex;
     max-width: 1170px;
     margin: 0 auto;
-    padding-top: 41px;
     justify-content: space-between;
-    gap:140px;
-    overflow: hidden;
-    height: 150px;
-
-}
-.brend_name_img{
-    width:196px;
-    height: 69px;
-    padding-bottom:5px;
+    align-items: center;
+    height: 100%;
 }
 
+
+/* ------------FOOTER CSS---------------------- */
+footer {
+    background: var(--gray3);
+    height: 172px;
+}
 
 .footer_line {
     width: 100%;
     height: 1px;
     border: 1px solid #FFFFFF;
-    margin-top: 34px;
     margin-bottom: 45px;
 }
 

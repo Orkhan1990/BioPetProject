@@ -15,6 +15,7 @@ let headBtns = document.querySelectorAll(".head_btns");
 let basketCircle = document.querySelector(".circle");
 let fullName = document.querySelector(".fulllname");
 let signOutIcon = document.querySelector(".fa-right-from-bracket");
+let fourtSectionSlider = document.querySelector(".fourth_section_slider");
 
 let newFavoriteArray = [];
 
@@ -178,7 +179,6 @@ fetch("../data/newTrendProduct.json")
   </div>
     `;
     });
-    // let favoriteProduct=document.querySelector('.favorite_product');
   });
 
 function addToFavoriteGroup(id) {
@@ -194,16 +194,14 @@ function addToFavoriteGroup(id) {
     });
 }
 
-
-
-function removeFromFavoriteGroup(id){
+function removeFromFavoriteGroup(id) {
   event.preventDefault();
   document.getElementById(`Layer_1${id}`).classList.remove("show_read_heart");
-  document.getElementById(`Layer_1${id}`).classList.add('red_heart');
-  document.getElementById(`simple_heart${id}`).style.display ="block";
-  let findIndex=favoriteBasket.findIndex((p)=>p.id===+id);
-  favoriteBasket.splice(findIndex,1);
-  localStorage.setItem("sevimliSebet",JSON.stringify(favoriteBasket));
+  document.getElementById(`Layer_1${id}`).classList.add("red_heart");
+  document.getElementById(`simple_heart${id}`).style.display = "block";
+  let findIndex = favoriteBasket.findIndex((p) => p.id === +id);
+  favoriteBasket.splice(findIndex, 1);
+  localStorage.setItem("sevimliSebet", JSON.stringify(favoriteBasket));
 }
 // function addToFavoriteGroup(id){
 //   let redHeart=document.getElementById(`Layer_1${id}`);
@@ -280,23 +278,23 @@ fetch("../data/productForAnimal.json")
     });
   });
 
-let footerCount = 0;
-function footerSlider() {
-  for (let i = 0; i < brendNameProducts.children.length; i++) {
-    brendNameProducts.children[i].style.transform = `translateX(${
-      -200 * footerCount
-    }px)`;
-  }
-}
-setInterval(() => {
-  if (footerCount < brendNameProducts.children.length - 5) {
-    footerCount++;
-    footerSlider();
-  } else {
-    footerCount = 0;
-    footerSlider();
-  }
-}, 3000);
+// let footerCount = 0;
+// function footerSlider() {
+//   for (let i = 0; i < brendNameProducts.children.length; i++) {
+//     brendNameProducts.children[i].style.transform = `translateX(${
+//       -200 * footerCount
+//     }px)`;
+//   }
+// }
+// setInterval(() => {
+//   if (footerCount < brendNameProducts.children.length - 5) {
+//     footerCount++;
+//     footerSlider();
+//   } else {
+//     footerCount = 0;
+//     footerSlider();
+//   }
+// }, 3000);
 
 // -------------------add to basket processing------------------------
 // let basket=JSON.parse(localStorage.getItem("sebet"))||[];
@@ -344,3 +342,18 @@ signOutIcon.addEventListener("click", () => {
   localStorage.removeItem("logedInUser");
   window.location.href = "./LoginPage/login.html";
 });
+
+// -------------------Fourth section cards creation------------------------
+
+fetch("./data/serviceData.json")
+  .then((resp) => resp.json())
+  .then((data) => {
+    data.forEach((item) => {
+      fourtSectionSlider.innerHTML += `
+   <div class="fourt_section_slider_card">
+   <img src="${item.image}" alt="" />
+   <p>${item.title}</p>
+   </div>
+   `;
+    });
+  });
